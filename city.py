@@ -16,9 +16,7 @@ app = FastAPI(
     version="1.0.0",
 )
 
-# Create your own keys and set them before starting Uvicorn:
-# $env:RAPIDAPI_KEY="your-key"
-# $env:WEATHERSTACK_API_KEY="your-key"
+
 RAPIDAPI_KEY = os.getenv("RAPIDAPI_KEY", "")
 WEATHERSTACK_API_KEY = os.getenv("WEATHERSTACK_API_KEY", "")
 WORLD_TIME_URL = "https://world-time-api3.p.rapidapi.com/timezone/{timezone}"
@@ -65,12 +63,8 @@ class CityResult(CityCreate):
     weather: Weather
 
 
-# Four records make GET /cities/ immediately suitable for the required screenshot.
+
 db: list[dict[str, Any]] = [
-    {"id": 1, "name": "Chicago", "timezone": "America/Chicago"},
-    {"id": 2, "name": "New York", "timezone": "America/New_York"},
-    {"id": 3, "name": "London", "timezone": "Europe/London"},
-    {"id": 4, "name": "Tokyo", "timezone": "Asia/Tokyo"},
 ]
 
 
